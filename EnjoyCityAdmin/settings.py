@@ -97,7 +97,7 @@ ROOT_URLCONF = 'EnjoyCityAdmin.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'EnjoyCityAdmin.wsgi.application'
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/account/login/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
