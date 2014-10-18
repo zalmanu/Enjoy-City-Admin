@@ -12,7 +12,7 @@ django-user-accounts==1.0
 ipython==2.3.0
 mongodbforms==0.3
 pinax-theme-bootstrap==5.5.1
-pinax-theme-bootstrap-account==1.0b3
+pinax-theme-bootstrap-account==1.0b2
 pymongo==2.7.2
 pytz==2014.7
 six==1.8.0
