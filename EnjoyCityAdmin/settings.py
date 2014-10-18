@@ -26,7 +26,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'djangotoolbox',
     'account',
     'admin',
+    'djrill'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -163,3 +164,16 @@ LOGGING = {
 }
 
 THEME_ACCOUNT_CONTACT_EMAIL = 'danci.emanuel@gmail.com'
+ACCOUNT_EMAIL_UNIQUE = False
+
+# Replace with Mandrill
+EMAIL_USE_TLS  = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'egioc.upt@gmail.com'
+EMAIL_HOST_PASSWORD = 'egiocevaluator'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL  = 'danci.emanuel@gmail.com'
+
+
+
