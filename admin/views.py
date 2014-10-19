@@ -21,6 +21,7 @@ def show_location_details(request, location_id):
         location = Location.objects.get(id=location_id)
         location_form = LocationForm(instance=location)
     except Location.DoesNotExist:
+        # TODO: render a nice 404 page.
         return HttpResponse('Not Found', status=404)
 
     return render_to_response('admin/location.html', {
