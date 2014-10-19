@@ -29,7 +29,13 @@
     </div>
     <div id="pane2" class="tab-pane">
       <br>
-      Items
+      <table class="table">
+        {% for item in content_items %}
+          <tr>
+            <td>{{ item.description }}</td>
+          </tr>
+        {% endfor %}
+      </table>
     </div>
   </div><!-- /.tab-content -->
 </div><!-- /.tabbable -->

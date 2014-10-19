@@ -4,7 +4,7 @@ from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import Location
+from .models import Location, Content
 from .forms import LocationForm
 
 
@@ -20,12 +20,14 @@ def show_location_details(request, location_id):
     try:
         location = Location.objects.get(id=location_id)
         location_form = LocationForm(instance=location)
+        content_items = Content.objects.filter(location_id=location_id)
     except Location.DoesNotExist:
         # TODO: render a nice 404 page.
         return HttpResponse('Not Found', status=404)
 
     return render_to_response('admin/location.html', {
-                'location_form': location_form
+                'location_form': location_form,
+                'content_items': content_items
                 }, context_instance=RequestContext(request))
 
 @login_required

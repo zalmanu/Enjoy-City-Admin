@@ -51,8 +51,8 @@ class Location(models.Model):
         verbose_name_plural = 'Locations'
 
 class Content(models.Model):
-    location = models.IntegerField()
-    description = models.TextField()
+    location_id = models.CharField(max_length=15)
+    description = models.TextField(null=True, blank=True)
     tags = ListField(models.PositiveIntegerField(), null=True, blank=True)
     photo = models.FileField(storage=gridfs_storage, upload_to='/media/locations/',
                             blank=True, null=True)

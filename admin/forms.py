@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Location, Tag
+from .models import Location, Tag, Content
 
 
 class LocationForm(forms.ModelForm):
@@ -28,3 +28,8 @@ class LocationForm(forms.ModelForm):
     class Meta:
         model = Location
         exclude = ('tags', 'user', 'rating')
+
+class ContentForm(forms.ModelForm):
+    class Meta:
+        model = Content
+        exclude = ('tags', )
