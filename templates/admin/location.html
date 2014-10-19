@@ -4,19 +4,35 @@
 
 {% block body %} 
 
-{% if form.non_field_errors %}
-    <div class="alert alert-error">
-        <strong>Please correct the errors bellow</strong><br>
-        {% for error in form.non_field_errors %}
-            {{ error }}<br>
-        {% endfor %}
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#pane1" data-toggle="tab">Description</a></li>
+    <li><a href="#pane2" data-toggle="tab">Items List</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="pane1" class="tab-pane active">
+      <br>
+        {% if form.non_field_errors %}
+            <div class="alert alert-error">
+                <strong>Please correct the errors bellow</strong><br>
+                {% for error in form.non_field_errors %}
+                    {{ error }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form class="form-horizontal" action="{% url 'add-location' %}" method="post">
+            {% csrf_token %}
+            {{ location_form|bootstrap }}
+          <input type="submit" class="bnt btn-success pull-right" value="Submit" />
+        </form>
     </div>
-{% endif %}
+    <div id="pane2" class="tab-pane">
+      <br>
+      Content
+    </div>
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
 
-<form class="form-horizontal" role="form" action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ location_form|bootstrap }}
-  <input type="submit" class="bnt btn-success" value="Submit" />
-</form>
 
-{% endblock %}
+{% endblock body %}
